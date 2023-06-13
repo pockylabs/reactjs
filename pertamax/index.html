@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>Ngulik React</title>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const container = document.getElementById("root");
+
+        function Header(props) {
+            console.log('props ===', props);
+            return(
+                <header><h1>Roemah Makan {props.nama}</h1></header>
+            )
+        }
+
+        function Content(props) {
+            return(
+                <main>
+                    <img 
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
+                    height={300}
+                    alt="Foto Rumah Makan Pocky"
+                    />
+                    <p>Roemah Makan Pocky {props.lokasi}</p>
+                    <ul>
+                        {props.menu.map((menu) => <li key={menu.id}>{menu.nama}</li>)}    
+                    </ul>
+                </main>
+            )
+        }
+
+        function Footer(props) {
+            return(
+                <footer>{props.tahun}</footer>
+            )
+        }
+
+        const menu = [
+            'Lontong Cap Gomeh',
+            "Rawon",
+            'Gudeg Jogja'
+        ]
+
+        const menuRemap = menu.map((menu, index) => ({
+            id: index,
+            nama: menu
+        }));
+
+        console.log("menuRemap===", menuRemap);
+
+        function App() {
+            return(
+                <>
+                    <Header nama="Poem"/>
+                    <Content lokasi="Semarang" menu={menuRemap}/>
+                    <Footer tahun={new Date().getFullYear()}/>    
+                </>
+            )
+        }
+
+        ReactDOM.createRoot(container).render(
+            <App />
+        );
+    </script>
+</body>
+</html>
