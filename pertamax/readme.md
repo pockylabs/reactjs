@@ -15,7 +15,6 @@ detailnya:
 
 <br>
 Misal ingin membuat unordered list:
-`
     <div id="root"></div>
     
     <script type="text/javascript">
@@ -31,7 +30,7 @@ Misal ingin membuat unordered list:
 
         ReactDOM.createRoot(container).render(ul);
     </script>
-`
+
 <br>
 
 Namun seiring dengan perkembangan proyek, tidak mungkin kita menuliskan hal seperti di atas menggunakan createElement. Butuh sesuatu yang bisa mempermudah kita, namanya adalah JSX. <br>
@@ -45,7 +44,7 @@ source: https://babeljs.io/setup/#installation <br>
 Lalu ubah dari `<script type="text/javascript">` ke `<script type="text/babel">` <br>
 
 Selain penulisan html di Javascript. Pada JSX, kita dapat inject dinamic content ke dalamnya. Contohnya: <br>
-`(javascript)
+```
 
     const mie = "Mie Ayam";
     const sate = 'Sate';
@@ -59,7 +58,7 @@ Selain penulisan html di Javascript. Pada JSX, kita dapat inject dinamic content
         </ul>
     );
 
-`
+```
 
 
 ## Component
